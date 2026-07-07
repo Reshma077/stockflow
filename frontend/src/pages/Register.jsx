@@ -22,7 +22,10 @@ function Register() {
     e.preventDefault();
 
     try {
-      await api.post("/auth/register", user);
+        const res = await api.post("/auth/signup", user);
+
+        localStorage.setItem("token", res.data.token);
+      
 
       alert("Registration Successful");
 
